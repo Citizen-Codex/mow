@@ -1,5 +1,6 @@
 <script>
 	import Grid from "$components/Grid.svelte";
+	import Button from "$components/ui/Button.svelte";
 	import obstacles from "$data/obstacles.json";
 	import solution from "$data/solution.json";
 	import { game } from "$runes/misc.svelte.js";
@@ -56,7 +57,7 @@
 		</div>
 	</div>
 
-	<p class="replay"><button>Replay</button></p>
+	<p class="replay"><Button>Replay</Button></p>
 </div>
 
 <style>

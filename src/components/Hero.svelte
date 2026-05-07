@@ -1,5 +1,6 @@
 <script>
 	import { tick } from "svelte";
+	import Button from "$components/ui/Button.svelte";
 	import { game } from "$runes/misc.svelte.js";
 	import Game from "$components/Game.svelte";
 	import server from "$utils/server.js";
@@ -62,7 +63,7 @@
 
 <p class="skip">
 	<small>
-		<button class="link" onclick={skip}>just skip to results please</button>
+		<Button variant="link" onclick={skip}>just skip to results please</Button>
 	</small>
 </p>
 
@@ -75,11 +76,4 @@
 		margin-top: -24px;
 	}
 
-	button.link {
-		background: none;
-		border: none;
-		color: var(--color-fg-light);
-		text-transform: lowercase;
-		font-weight: normal;
-	}
 </style>

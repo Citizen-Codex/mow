@@ -1,19 +1,13 @@
 <script>
 	import { browser } from "$app/environment";
-	import { scaleLinear, interpolateRgb, interpolateHcl } from "d3";
+	import { scaleLinear, interpolateRgb, interpolateHcl, max } from "d3";
 	import { draw, fade } from "svelte/transition";
+	import levels from "$data/levels.json";
 
 	// obstacles is an array of [{x,y}]
-	let {
-		size,
-		path = [],
-		perspective,
-		obstacles = [],
-		game = false,
-		color
-	} = $props();
+	let { size, path = [], obstacles = [], game = false, color } = $props();
 
-	const MAX_GRID_SIZE = 14;
+	const MAX_GRID_SIZE = max(levels, (l) => l.size) || 10;
 
 	const colorScale = $state({
 		user: scaleLinear()
@@ -48,6 +42,7 @@
 
 	let latest = $derived(path[path.length - 1] || { x: 0, y: 0 });
 	let offsetWidth = $state(0);
+	let figureWidth = $derived(Math.round((size / MAX_GRID_SIZE) * offsetWidth));
 	let nodes = $derived(!game);
 	let animating = $state(false);
 
@@ -68,13 +63,8 @@
 	};
 </script>
 
-<figure
-	style="--size: {size}; --max-size: {MAX_GRID_SIZE}; --margin: {offsetWidth *
-		-0.25}px; --face: {(offsetWidth / size) * 0.4}px;"
-	class:perspective
-	class:nodes
-	bind:offsetWidth
->
+<div class="measure" bind:offsetWidth aria-hidden="true"></div>
+<figure style="--size: {size}; width: {figureWidth}px;" class:nodes>
 	<div class="inner">
 		{#if !game && path.length > 1}
 			<svg viewbox="0 0 10 10">
@@ -123,26 +113,19 @@
 </figure>
 
 <style>
+	.measure {
+		width: 100%;
+		height: 0;
+		visibility: hidden;
+	}
+
 	figure {
-		width: calc(var(--size) / var(--max-size) * 100%);
-		/* perspective: calc(var(--grid-width) * 1); */
-		transition: all 0.5s ease-in-out;
 		position: relative;
 		margin: 1rem auto;
 	}
 
 	.inner {
 		position: relative;
-		transform-origin: center center;
-		transform-style: preserve-3d;
-	}
-
-	figure.perspective {
-		perspective-origin: 50% 50%;
-	}
-
-	.perspective .inner {
-		transform: rotateX(60deg) scale(0.85);
 	}
 
 	.grid {
@@ -204,7 +187,6 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		/* background-image: url("/assets/images/grass.png"); */
 		background-size: cover;
 		background-repeat: no-repeat;
 		pointer-events: none;
@@ -212,16 +194,13 @@
 	}
 
 	.visited .fg {
-		/* background-image: url("/assets/images/grass-cut.png"); */
 	}
 
 	.obstacle .fg {
-		/* background-image: url("/assets/images/rock.png"); */
 		transform: translateY(0%);
 	}
 
 	.obstacle.visited .fg {
-		/* background-image: url("/assets/images/rock.png"); */
 	}
 
 	.character {
@@ -230,8 +209,6 @@
 		width: 100%;
 		height: 100%;
 		background: var(--color-purple);
-		/* transform-origin: center bottom;
-		transform: rotateX(-60deg) translateZ(1px); */
 	}
 
 	/* nodes mode */
@@ -255,7 +232,6 @@
 		border-radius: 50%;
 		border: 1px solid var(--color-gray-500);
 		background: var(--color-bg);
-		/* opacity: 0.5; */
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -283,14 +259,12 @@
 	path.line {
 		stroke-width: 0.4;
 		stroke-linecap: round;
-		/* stroke-opacity: 0.2; */
 		fill: none;
 		stroke: var(--path-start);
 	}
 
 	path.arrow {
 		stroke-width: 0.1;
-		/* stroke-linecap: round; */
 		fill: none;
 		stroke: var(--path-start);
 	}

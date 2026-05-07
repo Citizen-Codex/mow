@@ -44,9 +44,7 @@
 <style>
 	.c {
 		margin: 0 auto;
-		width: var(--grid-width);
 		max-width: var(--grid-max-width);
-		/* margin-top: var(--margin); */
 	}
 
 	.keypad {
@@ -60,7 +58,6 @@
 		display: none;
 		text-align: center;
 		color: var(--color-fg-light);
-		/* transform: translateY(-100%); */
 	}
 
 	.keyboard p {
@@ -71,14 +68,6 @@
 		display: flex;
 		justify-content: center;
 	}
-	/* 
-	.row:nth-of-type(2) {
-		transform: translate(0, -50%);
-	}
-
-	.row:nth-of-type(3) {
-		transform: translate(0, -100%);
-	} */
 
 	button,
 	.spacer {

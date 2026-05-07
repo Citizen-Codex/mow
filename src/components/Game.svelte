@@ -1,6 +1,7 @@
 <script>
 	import Grid from "$components/Grid.svelte";
 	import Keypad from "$components/Keypad.svelte";
+	import Button from "$components/ui/Button.svelte";
 	import { SvelteSet } from "svelte/reactivity";
 	import { classify } from "$utils/classifier.js";
 
@@ -98,7 +99,7 @@
 	{/if}
 	{#if !startTime}
 		<div class="start">
-			<button onclick={onStart}>Start</button>
+			<Button variant="primary" onclick={onStart}>Start</Button>
 			{#if startMessage}<p>{startMessage}</p>{/if}
 		</div>
 	{/if}
@@ -112,10 +113,7 @@
 
 	.g {
 		max-width: var(--grid-max-width);
-		width: var(--grid-width);
 		margin: 0 auto;
-		display: flex;
-		justify-content: center;
 	}
 
 	.disable {
@@ -143,7 +141,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background: rgba(255, 255, 255, 0.9);
+		background: var(--color-bg);
 	}
 
 	.start p {
