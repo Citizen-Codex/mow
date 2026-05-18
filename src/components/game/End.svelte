@@ -7,13 +7,12 @@
 	<p>Your paths are now part of the dataset.</p>
 	{#if session.email}
 		<p>
-			We'll email <strong>{session.email}</strong> when the story drops.
+			We’ll email <strong>{session.email}</strong> when the story drops.
 		</p>
 	{:else}
 		<p>
-			The story drops in 1-2 weeks at <a href="https://pudding.cool"
-				>pudding.cool</a
-			>.
+			The story drops here in a couple weeks. Until then, check out more from us
+			on <a href="https://pudding.cool">The Pudding</a>.
 		</p>
 	{/if}
 </section>

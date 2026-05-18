@@ -9,6 +9,7 @@
 		"id": "round1",
 		"size": 7,
 		"record": true,
+		"optimal": 35,
 		"obstacles": [
 			{
 				"x": 1,
@@ -51,6 +52,7 @@
 	{
 		"id": "round2",
 		"size": 14,
+		"optimal": 90,
 		"record": true,
 		"obstacles": [
 			{
@@ -202,8 +204,8 @@
 	{
 		"id": "bonus1",
 		"size": 14,
+		"optimal": 90,
 		"record": true,
-		"stub": true,
 		"obstacles": []
 	}
 ]

@@ -37,15 +37,16 @@ async function insertAttempt({ user, level, platform, result }) {
 	}
 }
 
-async function upsertUser({ id, email, demographics }) {
+async function upsertUser({ id, email, name, demographics }) {
 	if (dev) {
-		console.log("[dev] skipping upsertUser", { id, email, demographics });
+		console.log("[dev] skipping upsertUser", { id, email, name, demographics });
 		return;
 	}
 	init();
 	const row = {
 		user: id,
 		email: email ?? null,
+		name: name ?? null,
 		age: demographics?.age ?? null,
 		style: demographics?.style ?? null,
 		gaming: demographics?.gaming ?? null,

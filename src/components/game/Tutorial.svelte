@@ -21,7 +21,7 @@
 		matter. Gray tiles are obstacles you can’t cross. You can retrace your
 		steps, but try to be efficient. Use the {instructions} to move.
 	</p>
-	<p class="meta"><em>Warm-up — this round isn't recorded.</em></p>
+	<p class="meta"><em>Warm-up. This round isn’t recorded.</em></p>
 	<Game
 		size={level.size}
 		obstacles={level.obstacles}

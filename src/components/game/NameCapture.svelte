@@ -3,19 +3,13 @@
 
 	let { onSubmit, onSkip } = $props();
 
-	let email = $state("");
+	let name = $state("");
 	let error = $state("");
 
-	const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 	function submit() {
-		const trimmed = email.trim();
+		const trimmed = name.trim();
 		if (!trimmed) {
-			error = "Please enter an email or skip.";
-			return;
-		}
-		if (!re.test(trimmed)) {
-			error = "That doesn't look like an email.";
+			error = "Please enter a name or skip.";
 			return;
 		}
 		error = "";
@@ -24,21 +18,22 @@
 </script>
 
 <div class="c">
-	<h2>Get notified when the story drops</h2>
-	<p>We’ll publish the analysis in a couple weeks then delete your email.</p>
+	<h2>Add your name to the leaderboard</h2>
+	<p>Your name will appear next to your score.</p>
 
 	<div class="row">
 		<input
-			type="email"
-			placeholder="you@example.com"
-			bind:value={email}
+			type="text"
+			placeholder="Your name or initials"
+			maxlength="15"
+			bind:value={name}
 			onkeydown={(e) => e.key === "Enter" && submit()}
 		/>
 	</div>
 	{#if error}<p class="error">{error}</p>{/if}
 
 	<div class="actions">
-		<Button variant="primary" onclick={submit}>Notify me</Button>
+		<Button variant="primary" onclick={submit}>Add me</Button>
 		<Button variant="ghost" onclick={onSkip}>Skip</Button>
 	</div>
 </div>

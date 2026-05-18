@@ -68,7 +68,7 @@
 		<Round
 			id="round2"
 			label="Round 2 of 2"
-			startMessage="Last one. Bigger lawn."
+			startMessage="Last one! A little bigger."
 			nextPhase="interstitial"
 		/>
 	{:else if session.phase === "interstitial"}

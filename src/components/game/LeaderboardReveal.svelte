@@ -1,13 +1,22 @@
 <script>
-	// TODO: replace with live Supabase aggregate (best score for round2 vs user)
-	const placeholderMoves = 3;
+	import { session } from "$runes/misc.svelte.js";
+
+	const avgEfficiency = $derived(() => {
+		const values = Object.values(session.levelEfficiencies);
+		if (!values.length) return null;
+		const a = values.reduce((a, b) => a + b, 0) / values.length;
+		return +(a * 100).toFixed(1);
+	});
 </script>
 
 <div class="c">
 	<h2>Thanks for mowing!</h2>
-	<p class="big">
-		You’re <strong>{placeholderMoves} moves</strong> behind the leader.
-	</p>
+	{#if avgEfficiency() !== null}
+		<p class="big">
+			You mowed <strong>{avgEfficiency()}% optimally</strong>. TODO X% behind
+			the top player!
+		</p>
+	{/if}
 </div>
 
 <style>

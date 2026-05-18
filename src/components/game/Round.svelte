@@ -25,7 +25,13 @@
 		const isReturnVisitor =
 			session.startedLevels[id] && !freshStartedLevels.has(id);
 		const alreadyCompleted = session.completedLevels[id];
-		session.completedLevels[id] = true;
+		session.completedLevels[id] = path.length;
+		if (level.optimal != null) {
+			session.levelEfficiencies[id] = Math.min(
+				1,
+				+(level.optimal / path.length).toFixed(4)
+			);
+		}
 		saving = true;
 		try {
 			if (!isReturnVisitor && !alreadyCompleted) {
@@ -58,7 +64,7 @@
 		{startMessage}
 	/>
 	{#if saving}
-		<p class="saving"><small>Saving…</small></p>
+		<p class="saving"><small>Saving...</small></p>
 	{/if}
 </section>
 

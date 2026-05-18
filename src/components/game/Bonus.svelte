@@ -9,10 +9,6 @@
 
 <section class="c">
 	<h2>Coming soon</h2>
-	<p>
-		Bonus rounds are still in the workshop. Check back soon — or sign up for the
-		story to hear when they're live.
-	</p>
 	<Button onclick={done}>Wrap it up</Button>
 </section>
 
