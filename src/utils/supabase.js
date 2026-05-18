@@ -1,12 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
-import { page } from "$app/state";
 import { browser } from "$app/environment";
 
 let supabase;
 
 const dev = browser
-	? !page.url.hostname.includes("pudding.cool") &&
-		!page.url.hostname.includes("citizencodex.com")
+	? !window.location.hostname.includes("pudding.cool") &&
+		!window.location.hostname.includes("citizencodex.com")
 	: true;
 
 console.log("Supabase dev mode:", dev);

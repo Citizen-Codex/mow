@@ -1,6 +1,6 @@
 <script>
 	import { browser } from "$app/environment";
-	import { page } from "$app/state";
+
 	import Meta from "$components/Meta.svelte";
 	import Intro from "$components/game/Intro.svelte";
 	import Tutorial from "$components/game/Tutorial.svelte";
@@ -19,9 +19,10 @@
 
 	let hydrated = $state(false);
 	// is not pudding.cool
-	let dev =
-		!page.url.hostname.includes("pudding.cool") &&
-		!page.url.hostname.includes("citizencodex.com");
+	let dev = browser
+		? !window.location.hostname.includes("pudding.cool") &&
+			!window.location.hostname.includes("citizencodex.com")
+		: true;
 
 	$inspect(dev);
 
