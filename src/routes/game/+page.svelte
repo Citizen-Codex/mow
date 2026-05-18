@@ -22,7 +22,8 @@
 	let dev =
 		!page.url.hostname.includes("pudding.cool") &&
 		!page.url.hostname.includes("citizencodex.com");
-	// let dev = false;
+
+	$inspect(dev);
 
 	$effect(() => {
 		if (!browser) return;

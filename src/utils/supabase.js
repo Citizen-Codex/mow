@@ -4,7 +4,12 @@ import { browser } from "$app/environment";
 
 let supabase;
 
-const dev = browser && !page.url.hostname.includes("pudding.cool");
+const dev = browser
+	? !page.url.hostname.includes("pudding.cool") &&
+		!page.url.hostname.includes("citizencodex.com")
+	: true;
+
+console.log("Supabase dev mode:", dev);
 
 function init() {
 	if (supabase || !browser) return;
