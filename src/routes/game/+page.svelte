@@ -77,7 +77,7 @@
 		<BonusIntro />
 	{:else if session.phase === "bonus"}
 		<Bonus />
-	{:else if session.phase === "end"}
+	{:else if session.phase === "end" || session.phase === "skip_end"}
 		<End />
 	{/if}
 </div>

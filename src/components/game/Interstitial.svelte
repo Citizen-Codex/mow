@@ -49,7 +49,7 @@
 	}
 
 	function exit() {
-		session.phase = "end";
+		session.phase = "skip_end";
 	}
 </script>
 

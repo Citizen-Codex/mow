@@ -7,7 +7,7 @@
 	}
 
 	function exit() {
-		session.phase = "end";
+		session.phase = "skip_end";
 	}
 </script>
 
@@ -15,8 +15,8 @@
 	<h2>Bonus rounds</h2>
 	<p>Harder grids, for fun. Your paths are still recorded.</p>
 	<div class="actions">
-		<Button variant="primary" onclick={start}>Let's go</Button>
-		<Button variant="ghost" onclick={exit}>Actually, I'm done</Button>
+		<Button variant="primary" onclick={start}>Let’s go</Button>
+		<Button variant="ghost" onclick={exit}>Actually, I’m done</Button>
 	</div>
 </section>
 

@@ -1,10 +1,16 @@
 <script>
 	import Button from "$components/ui/Button.svelte";
+	import badWords from "$data/bad-words.csv";
 
 	let { onSubmit, onSkip } = $props();
 
 	let name = $state("");
 	let error = $state("");
+
+	function hasBadWord(str) {
+		const temp = str.toLowerCase().replace(/ /g, "");
+		return badWords.has(temp) || [...badWords].some((w) => temp.includes(w));
+	}
 
 	function submit() {
 		const trimmed = name.trim();
@@ -13,6 +19,10 @@
 			return;
 		}
 		error = "";
+		if (hasBadWord(trimmed)) {
+			onSkip();
+			return;
+		}
 		onSubmit(trimmed);
 	}
 </script>
@@ -27,6 +37,12 @@
 			placeholder="Your name or initials"
 			maxlength="15"
 			bind:value={name}
+			oninput={(e) => {
+				const el = e.currentTarget;
+				const filtered = el.value.replace(/[^a-z0-9 ]/gi, "").toLowerCase();
+				name = filtered;
+				el.value = filtered;
+			}}
 			onkeydown={(e) => e.key === "Enter" && submit()}
 		/>
 	</div>

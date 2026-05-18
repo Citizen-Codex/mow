@@ -62,4 +62,48 @@ async function upsertUser({ id, email, name, demographics }) {
 	}
 }
 
-export default { init, insertAttempt, upsertUser };
+async function submitScore({ userId, name, scoreStart, scoreFull }) {
+	if (dev) {
+		console.log("[dev] skipping submitScore", {
+			userId,
+			name,
+			scoreStart,
+			scoreFull
+		});
+		return;
+	}
+	init();
+	const { error } = await supabase.from("mow_leaderboard").upsert(
+		{
+			user: userId,
+			name,
+			score_start: scoreStart,
+			score_full: scoreFull
+		},
+		{ onConflict: "user" }
+	);
+	if (error) {
+		console.log(error);
+		throw error;
+	}
+}
+
+async function getTopScores(limit = 10) {
+	if (dev) {
+		console.log("[dev] skipping getTopScores");
+		return [];
+	}
+	init();
+	const { data, error } = await supabase
+		.from("mow_leaderboard")
+		.select("name, score_start, score_full")
+		.order("score_full", { ascending: false })
+		.limit(limit);
+	if (error) {
+		console.log(error);
+		throw error;
+	}
+	return data;
+}
+
+export default { init, insertAttempt, upsertUser, submitScore, getTopScores };
