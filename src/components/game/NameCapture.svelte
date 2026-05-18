@@ -9,7 +9,9 @@
 
 	function hasBadWord(str) {
 		const temp = str.toLowerCase().replace(/ /g, "");
-		return badWords.has(temp) || [...badWords].some((w) => temp.includes(w));
+		return (
+			badWords.includes(temp) || [...badWords].some((w) => temp.includes(w))
+		);
 	}
 
 	function submit() {
