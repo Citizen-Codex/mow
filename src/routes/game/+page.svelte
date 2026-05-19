@@ -10,6 +10,11 @@
 	import End from "$components/game/End.svelte";
 	import { session } from "$runes/misc.svelte.js";
 
+	const preloadFont = [
+		"https://pudding.cool/assets/fonts/inconsolata/inconsolata-v32-latin-regular.woff2",
+		"https://pudding.cool/assets/fonts/inconsolata/inconsolata-v32-latin-700.woff2"
+	];
+
 	const STORAGE_KEY = "pudding_mow_game";
 
 	const title = "Lawn mowing experiment";
@@ -63,7 +68,7 @@
 	});
 </script>
 
-<Meta {title} {description} />
+<Meta {title} {description} {preloadFont} />
 
 <div class="page">
 	{#if session.phase === "intro"}
@@ -94,11 +99,21 @@
 	{:else if session.phase === "bonus_intro"}
 		<Bonus />
 	{:else if session.phase === "bonus1"}
-		<Round id="bonus1" label="1 of 3" startMessage="" nextPhase="bonus2" />
+		<Round
+			id="bonus1"
+			label="Round 3 of 5"
+			startMessage=""
+			nextPhase="bonus2"
+		/>
 	{:else if session.phase === "bonus2"}
-		<Round id="bonus2" label="2 of 3" startMessage="" nextPhase="bonus3" />
+		<Round
+			id="bonus2"
+			label="Round 4 of 5"
+			startMessage=""
+			nextPhase="bonus3"
+		/>
 	{:else if session.phase === "bonus3"}
-		<Round id="bonus3" label="3 of 3" startMessage="" nextPhase="end" />
+		<Round id="bonus3" label="Round 5 of 5" startMessage="" nextPhase="end" />
 	{:else if session.phase === "end" || session.phase === "skip_end"}
 		<End />
 	{/if}

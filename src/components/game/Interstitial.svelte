@@ -14,7 +14,6 @@
 		try {
 			await db.upsertUser({
 				id: session.userId,
-				email: session.email,
 				name: session.name,
 				demographics: session.demographics
 			});
@@ -28,6 +27,11 @@
 		session.email = email;
 		step = "name";
 		await persistUser();
+		try {
+			await db.insertEmail({ id: session.userId, email: email });
+		} catch (error) {
+			console.error("Error saving email:", error);
+		}
 	}
 
 	async function onSkipSurvey() {

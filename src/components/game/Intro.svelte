@@ -10,7 +10,7 @@
 </script>
 
 <section class="c">
-	<h1>Lawn mowing experiment</h1>
+	<h1><strong>Lawn mowing experiment</strong></h1>
 	<p>
 		This is a game about mowing a lawn as efficiently as possible. And a small
 		experiment. Play through, and we’ll break down the findings when our story

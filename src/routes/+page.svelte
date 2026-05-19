@@ -11,10 +11,8 @@
 	version();
 
 	const preloadFont = [
-		// "https://pudding.cool/assets/fonts/tiempos/TiemposTextWeb-Regular.woff2",
-		// "https://pudding.cool/assets/fonts/tiempos/TiemposTextWeb-Bold.woff2",
-		// "https://pudding.cool/assets/fonts/atlas/AtlasGrotesk-Regular-Web.woff2",
-		// "https://pudding.cool/assets/fonts/atlas/AtlasGrotesk-Bold-Web.woff2"
+		"https://pudding.cool/assets/fonts/inconsolata/inconsolata-v32-latin-regular.woff2",
+		"https://pudding.cool/assets/fonts/inconsolata/inconsolata-v32-latin-700.woff2"
 	];
 
 	const { title, description, url, keywords } = copy;

@@ -9,7 +9,7 @@
 	/* font */
 	--font-sans: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 	--font-serif: Iowan Old Style, Times New Roman, Times, serif;
-	--font-mono: Menlo, Consolas, Monaco, monospace;
+	--font-mono: Inconsolata, Menlo, Consolas, Monaco, monospace;
 
 	/* z-index */
 	--z-bottom: -1;
@@ -19,8 +19,8 @@
 	--z-modal: 1000;
 
 	/* presets (used in reset.css) */
-	--font-body: var(--font-sans);
-	--font-form: var(--font-sans);
+	--font-body: var(--font-mono);
+	--font-form: var(--font-mono);
 
 	--radius-xs: 0.125rem;
 	--radius-sm: 0.25rem;
@@ -76,7 +76,7 @@
 }
 
 h1 {
-	font-size: var(--48px, 48px);
+	font-size: var(--36px, 36px);
 }
 
 h2 {

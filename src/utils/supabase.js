@@ -66,8 +66,15 @@ async function upsertUser({ id, email, name, demographics }) {
 		console.log(error);
 		throw error;
 	}
+}
 
-	// insert email to separate table called "mow_emails" so we can manage our email list without affecting the main user table
+async function insertEmail({ id, email }) {
+	if (dev) {
+		console.log("[dev] skipping insertEmail", { user_id: id, email });
+		return;
+	}
+
+	init();
 	if (email) {
 		const { error: emailError } = await supabase.from("mow_emails").insert({
 			user_id: id,
@@ -127,6 +134,7 @@ async function getTopScores(limit = 10) {
 export default {
 	init,
 	insertAttempt,
+	insertEmail,
 	upsertUser,
 	submitScore,
 	getTopScores

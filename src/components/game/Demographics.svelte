@@ -46,7 +46,7 @@
 	function submit() {
 		const trimmed = email.trim();
 		if (trimmed && !emailRe.test(trimmed)) {
-			emailError = "That doesn't look like an email.";
+			emailError = "That doesn’t look like an email.";
 			return;
 		}
 		emailError = "";
