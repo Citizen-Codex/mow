@@ -11,8 +11,7 @@
 		size = 10,
 		classifier = false,
 		onComplete,
-		onStart: onStartProp,
-		startMessage
+		onStart: onStartProp
 	} = $props();
 
 	// const predictionMoves = 15;
@@ -25,6 +24,7 @@
 	let visited = new SvelteSet(["0,0"]);
 	let revisited = new SvelteSet();
 	let flipCharacter = $state(true);
+	let started = $derived(startTime != null);
 
 	function onStart() {
 		startTime = Date.now();
@@ -108,6 +108,7 @@
 				{obstacles}
 				game={true}
 				{flipCharacter}
+				{started}
 			></Grid>
 		</div>
 		{#if active}<Keypad {onmove} {active}></Keypad>{/if}
@@ -117,7 +118,7 @@
 	{/if}
 	{#if !startTime}
 		<div class="start">
-			<Button variant="primary" onclick={onStart}>Start</Button>
+			<Button variant="primary" size="lg" onclick={onStart}>Start</Button>
 		</div>
 	{/if}
 </div>
@@ -158,7 +159,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background: var(--color-bg);
 	}
 
 	.start p {
@@ -170,6 +170,5 @@
 		max-width: var(--grid-max-width);
 		text-align: center;
 		font-size: var(--14px);
-		color: var(--color-fg-light);
 	}
 </style>

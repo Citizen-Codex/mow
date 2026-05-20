@@ -1,6 +1,6 @@
 <script>
 	import Button from "$components/ui/Button.svelte";
-	import LeaderboardReveal from "$components/game/LeaderboardReveal.svelte";
+	import Leaderboard from "$components/game/Leaderboard.svelte";
 	import Demographics from "$components/game/Demographics.svelte";
 	import NameCapture from "$components/game/NameCapture.svelte";
 	import db from "$utils/supabase.js";
@@ -65,13 +65,13 @@
 	{:else if step === "name"}
 		<NameCapture onSubmit={onSubmitName} onSkip={onSkipName} />
 	{:else if step === "reveal"}
-		<LeaderboardReveal />
+		<Leaderboard />
 		<div class="pitch">
 			<h2>Can you top the leaderboard?</h2>
 			<p>Play a few harder bonus rounds to test your skills.</p>
 			<div class="actions">
 				<Button variant="primary" onclick={tryBonus}>Yes, more</Button>
-				<Button variant="ghost" onclick={exit}>No, I’m done</Button>
+				<Button variant="ghost" onclick={exit}>I’m done</Button>
 			</div>
 		</div>
 	{/if}
@@ -91,7 +91,9 @@
 
 	.actions {
 		display: flex;
-		gap: 0.75rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
 		justify-content: center;
 		margin-top: 1.5rem;
 	}

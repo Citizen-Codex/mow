@@ -12,7 +12,8 @@
 		game = false,
 		color,
 		revisited,
-		flipCharacter
+		flipCharacter,
+		started
 	} = $props();
 
 	const MAX_GRID_SIZE = max(levels, (l) => l.size) || 10;
@@ -73,7 +74,11 @@
 </script>
 
 <div class="measure" bind:offsetWidth aria-hidden="true"></div>
-<figure style="--size: {size}; width: {figureWidth}px;" class:nodes>
+<figure
+	style="--size: {size}; width: {figureWidth}px;"
+	class:nodes
+	class:started
+>
 	<div class="inner">
 		{#if !game && path.length > 1}
 			<svg viewbox="0 0 10 10">
@@ -136,10 +141,16 @@
 	figure {
 		position: relative;
 		margin: 1rem auto;
+		outline: 2px solid var(--color-fg);
 	}
 
 	.inner {
 		position: relative;
+		visibility: hidden;
+	}
+
+	.started .inner {
+		visibility: visible;
 	}
 
 	.grid {

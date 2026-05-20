@@ -7,7 +7,12 @@
 	font-size: inherit;
 	outline: none;
 	text-decoration: none;
-	border-radius: var(--radius-md);
+	border-radius: 0;
+	text-transform: uppercase;
+	font-size: var(--14px);
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	line-height: 1;
 	font-family: var(--font-form);
 	transition: transform 0.25s ease, background 0.25s ease;
 }
@@ -81,6 +86,7 @@
 	--fg: var(--color-fg);
 	background: var(--bg);
 	color: var(--fg);
+	text-decoration: 2px underline;
 }
 
 .bits-button[data-button-root][data-variant="link"] {

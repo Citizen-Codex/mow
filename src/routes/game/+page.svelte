@@ -33,7 +33,7 @@
 	);
 
 	let tutorialText = $derived(
-		`The goal: Mow every green tile in as few moves as possible. Time doesn’t matter. Gray tiles are obstacles you can’t cross. You can retrace your steps, but try to be efficient. Use the ${instructions} to move.`
+		`The goal: Mow every grassy green tile in as few moves as possible. Time doesn’t matter. You can’t cross obstacles. You can retrace your steps, but try to be efficient. Use the ${instructions} to move. <br><small><em>(This round doesn’t count, it’s just to get the hang of it.)</em></small>`
 	);
 
 	$effect(() => {

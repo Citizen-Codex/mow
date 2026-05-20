@@ -62,7 +62,7 @@
 
 <section class="c">
 	<p class="label"><strong>{label}</strong></p>
-	<p>{startMessage}</p>
+	<p>{@html startMessage}</p>
 	<Game size={level.size} obstacles={level.obstacles} {onStart} {onComplete} />
 	{#if saving}
 		<p class="saving"><small>Saving...</small></p>
@@ -77,12 +77,11 @@
 	}
 
 	.label {
-		color: var(--color-purple);
 		margin-bottom: 0.25rem;
+		text-transform: uppercase;
 	}
 
 	.saving {
 		text-align: center;
-		color: var(--color-fg-light);
 	}
 </style>

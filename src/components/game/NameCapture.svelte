@@ -31,7 +31,7 @@
 
 <div class="c">
 	<h2>Add your name to the leaderboard</h2>
-	<p>Your name will appear next to your score.</p>
+	<p class="meta">Your name will appear next to your score.</p>
 
 	<div class="row">
 		<input
@@ -51,8 +51,8 @@
 	{#if error}<p class="error">{error}</p>{/if}
 
 	<div class="actions">
-		<Button variant="primary" onclick={submit}>Add me</Button>
-		<Button variant="ghost" onclick={onSkip}>Skip</Button>
+		<Button variant="primary" size="lg" onclick={submit}>Add me</Button>
+		<Button variant="ghost" size="lg" onclick={onSkip}>Skip</Button>
 	</div>
 </div>
 
@@ -69,9 +69,8 @@
 
 	input {
 		width: 100%;
-		padding: 0.5rem 0.75rem;
 		font-size: var(--16px);
-		border: 1px solid var(--color-gray-500);
+		border: 2px solid var(--color-border);
 	}
 
 	.error {
@@ -82,8 +81,10 @@
 
 	.actions {
 		display: flex;
-		gap: 0.75rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
 		justify-content: center;
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 	}
 </style>

@@ -51,7 +51,6 @@
 	.keyboard {
 		display: none;
 		text-align: center;
-		color: var(--color-fg-light);
 	}
 
 	.keyboard p {

@@ -81,7 +81,7 @@
 
 	<fieldset>
 		<legend>Get notified when the story drops? </legend>
-		<div>
+		<div class="meta">
 			<small
 				><em
 					>Your email won’t be used for anything else and will be deleted after
@@ -101,8 +101,8 @@
 	</fieldset>
 
 	<div class="actions">
-		<Button variant="primary" onclick={submit}>Submit</Button>
-		<Button variant="ghost" onclick={onSkip}>Skip to results</Button>
+		<Button variant="primary" size="lg" onclick={submit}>Submit</Button>
+		<Button variant="ghost" size="lg" onclick={onSkip}>Skip to results</Button>
 	</div>
 </div>
 
@@ -113,8 +113,8 @@
 	}
 
 	.meta {
-		color: var(--color-fg-light);
 		font-size: var(--14px);
+		line-height: 1.2;
 	}
 
 	fieldset {
@@ -143,10 +143,10 @@
 	}
 
 	.email {
+		margin-top: 0.5rem;
 		width: 100%;
-		padding: 0.5rem 0.75rem;
 		font-size: var(--16px);
-		border: 1px solid var(--color-gray-500);
+		border: 2px solid var(--color-border);
 	}
 
 	.error {
@@ -156,8 +156,10 @@
 	}
 
 	.actions {
+		align-items: center;
 		display: flex;
-		gap: 0.75rem;
+		flex-direction: column;
+		gap: 0.5rem;
 		justify-content: center;
 		margin-top: 1.5rem;
 	}

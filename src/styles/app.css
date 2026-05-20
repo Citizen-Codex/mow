@@ -27,23 +27,23 @@
 	--radius-md: 0.5rem;
 	--radius-lg: 1rem;
 	
-	--color-bg: var(--color-white);
-	--color-fg: var(--color-gray-900);
-	--color-fg-light: var(--color-gray-500);
+	--color-bg: var(--color-green-light);
+	--color-fg: var(--color-grey-900);
+	--color-fg-alt: var(--color-green-darker);
 	--color-primary: var(--color-black);
 	--color-link: var(--color-black);
 	--color-link-hover: var(--color-black);
-	--color-focus: var(--color-gray-500);
+	--color-focus: var(--color-grey-700);
 	--color-mark: var(--color-yellow);
-	--color-selection: var(--color-gray-300);
-	--color-border: var(--color-gray-300);
-	--color-button-fg-primary: var(--color-white);
-	--color-button-bg-primary: var(--color-gray-900);
+	--color-selection: var(--color-grey-300);
+	--color-border: var(--color-fg);
+	--color-button-fg-primary: var(--color-green-light);
+	--color-button-bg-primary: var(--color-grey-900);
 	--color-button-fg-secondary: var(--color-white);
-	--color-button-bg-secondary: var(--color-gray-500);
-	--color-input-bg: var(--color-gray-50);
-	--color-input-fg: var(--color-gray-900);
-	--color-placeholder: var(--color-gray-500);
+	--color-button-bg-secondary: var(--color-grey-700);
+	--color-input-bg: var(--color-white);
+	--color-input-fg: var(--color-fg);
+	--color-placeholder: var(--color-fg);
 
 	/* "1" second duration */
 	--1s: 1ms;
@@ -77,22 +77,26 @@
 
 h1 {
 	font-size: var(--36px, 36px);
+	font-weight: 700;
 }
 
 h2 {
-	font-size: var(--36px, 36px);
+	font-size: var(--24px, 24px);
+	line-height: 1.2;
+	font-weight: 700;
 }
 
 h3 {
-	font-size: var(--28px, 28px);
+	font-size: var(--20px, 20px);
+	font-weight: 700;
 }
 
 h4 {
-	font-size: var(--24px, 24px);
+	font-size: var(--20px, 20px);
 }
 
 h5 {
-	font-size: var(--22px, 22px);
+	font-size: var(--20px, 20px);
 }
 
 h6 {
@@ -106,7 +110,7 @@ svg {
 }
 
 body {
-	min-height: 101svh;
+	/* min-height: 101svh; */
 }
 
 #post {

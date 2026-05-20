@@ -10,13 +10,15 @@
 </script>
 
 <section class="c">
-	<h1><strong>Lawn mowing experiment</strong></h1>
+	<h1><strong>Lawn Mowing Experiment</strong></h1>
 	<p>
 		This is a game about mowing a lawn as efficiently as possible. And a small
-		experiment. Play through, and we’ll break down the findings when our story
-		drops in a couple weeks.
+		experiment. Play just two rounds, and then we’ll break down the findings
+		when our story drops in a couple weeks.
 	</p>
-	<Button variant="primary" size="lg" onclick={start}>Start</Button>
+	<div>
+		<Button variant="primary" size="lg" onclick={start}>Let’s do it</Button>
+	</div>
 </section>
 
 <style>
@@ -26,7 +28,13 @@
 		padding: 1rem;
 	}
 
-	.c :global(.bits-button) {
-		margin-top: 1.5rem;
+	h1 {
+		line-height: 1.1;
+		text-align: center;
+	}
+
+	div {
+		text-align: center;
+		padding: 4rem 0;
 	}
 </style>

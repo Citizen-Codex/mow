@@ -42,7 +42,7 @@
 <div class="c">
 	<h2>Thanks for mowing!</h2>
 	{#if yourScore !== null}
-		<p class="big">
+		<p>
 			You mowed <strong>{yourScore}% optimally</strong>.
 			{#if topScore !== null && yourScore < topScore}
 				That’s {(topScore - yourScore).toFixed(1)}% behind the top player.

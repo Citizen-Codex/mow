@@ -43,21 +43,21 @@
 
 <section class="c">
 	<Leaderboard ready={leaderboardReady} mode="full" />
-	<h2>Enjoy the rest of your day.</h2>
-	<p>Your paths are now part of the dataset.</p>
 	{#if session.email}
 		<p>
 			We’ll email <strong>{session.email}</strong> when the story drops.
 		</p>
 	{:else}
 		<p>
-			The story drops here in a couple weeks. Until then, check out more from us
-			on <a href="https://pudding.cool">The Pudding</a>.
+			Your paths are now part of the dataset. The story drops here in a couple
+			weeks. Until then, check out more from us on <a
+				href="https://pudding.cool">The Pudding</a
+			>.
 		</p>
 	{/if}
 	{#if session.phase === "skip_end"}
 		<div class="actions">
-			<Button variant="primary" onclick={tryBonus}
+			<Button variant="primary" size="lg" onclick={tryBonus}
 				>Actually, I’ll try the bonus levels</Button
 			>
 		</div>

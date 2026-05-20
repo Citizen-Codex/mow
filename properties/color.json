@@ -39,10 +39,10 @@
 		"gray-950": {
 			"value": "oklch(14.5% 0 0)"
 		},
-		"green-lighter": {
+		"green-light": {
 			"value": "#63c74d"
 		},
-		"green-light": {
+		"green-medium": {
 			"value": "#3e8948"
 		},
 		"green-dark": {
@@ -50,6 +50,42 @@
 		},
 		"green-darker": {
 			"value": "#193c3e"
+		},
+		"red-light": {
+			"value": "#e43b44"
+		},
+		"red-medium": {
+			"value": "#ff0044"
+		},
+		"red-dark": {
+			"value": "#a22633"
+		},
+		"orange-light": {
+			"value": "#feae34"
+		},
+		"orange-medium": {
+			"value": "#f77622"
+		},
+		"yellow": {
+			"value": "#fee761"
+		},
+		"grey-100": {
+			"value": "#c0cbdc"
+		},
+		"grey-200": {
+			"value": "#8b9bb4"
+		},
+		"grey-300": {
+			"value": "#5a6988"
+		},
+		"grey-700": {
+			"value": "#3a4466"
+		},
+		"grey-800": {
+			"value": "#262b44"
+		},
+		"grey-900": {
+			"value": "#181425"
 		}
 	}
 }
