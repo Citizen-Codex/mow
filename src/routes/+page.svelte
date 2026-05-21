@@ -36,9 +36,14 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		min-height: 100vh;
+		height: 99svh;
 		padding: 1rem;
 		text-align: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: var(--z-middle);
 	}
 
 	.coming-soon a {
