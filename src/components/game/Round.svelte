@@ -62,7 +62,7 @@
 
 <section class="c">
 	<p class="label"><strong>{label}</strong></p>
-	<p>{@html startMessage}</p>
+	<p class="message">{@html startMessage}</p>
 	<Game size={level.size} obstacles={level.obstacles} {onStart} {onComplete} />
 	{#if saving}
 		<p class="saving"><small>Saving...</small></p>
@@ -77,8 +77,15 @@
 	}
 
 	.label {
-		margin-bottom: 0.25rem;
 		text-transform: uppercase;
+		margin: 0;
+	}
+
+	.message {
+		border-bottom: 1px dashed var(--color-fg-alt);
+		padding-bottom: 0.5rem;
+		margin-bottom: 0;
+		margin-top: 0;
 	}
 
 	.saving {
