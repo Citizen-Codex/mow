@@ -176,11 +176,11 @@
 	}
 
 	.cell.visited {
-		background: var(--color-green-light);
+		background: var(--color-green-medium);
 	}
 
 	.cell.revisited {
-		background: var(--color-green-lighter);
+		background: var(--color-green-light);
 	}
 
 	.cell.obstacle {
