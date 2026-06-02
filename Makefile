@@ -20,9 +20,9 @@ production:
 	make pudding
 
 aws-sync:
-	aws s3 sync build s3://pudding.cool/2026/05/mow --delete --cache-control 'max-age=31536000'
+	aws s3 sync build s3://pudding.cool/2026/06/mow --delete --cache-control 'max-age=31536000'
 
 aws-cache:
-	aws cloudfront create-invalidation --distribution-id E13X38CRR4E04D --paths '/2026/05/mow*'	
+	aws cloudfront create-invalidation --distribution-id E13X38CRR4E04D --paths '/2026/06/mow*'	
 
 pudding: aws-sync aws-cache
