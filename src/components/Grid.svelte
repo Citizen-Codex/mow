@@ -210,6 +210,8 @@
 		background-image: url("/assets/images/grass.png");
 		background-size: var(--grass-bg-size);
 		background-position: var(--grass-x, 0%) 0%;
+		/* lighten */
+		filter: brightness(1.25);
 	}
 
 	.cell.obstacle {

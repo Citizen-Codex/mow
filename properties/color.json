@@ -51,6 +51,9 @@
 		"green-darker": {
 			"value": "#193c3e"
 		},
+		"green-custom": {
+			"value": "#2f6837"
+		},
 		"red-light": {
 			"value": "#e43b44"
 		},
