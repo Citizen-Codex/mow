@@ -34,7 +34,7 @@
 
 	const STORAGE_KEY = "pudding_mow_game";
 
-	const title = "Lawn mowing experiment";
+	const title = "Lawn Mowing Experiment";
 	const description =
 		"Mow a series of lawns as efficiently as you can. We will publish the analysis in a few weeks.";
 

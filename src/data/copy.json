@@ -1,7 +1,8 @@
 {
-  "title": "Mow this lawn. Learn about your brain.",
-  "description": "Your lawn mowing style says more about you than you think.",
-  "byline": "By <a href=https://pudding.cool/author/russell-samora target=_blank rel=noreferrer>Russell Samora</a>",
+  "meta": {
+    "title": "Lawn Mowing Experiment",
+    "description": "Mow a series of lawns as efficiently as you can. We will publish the analysis in a few weeks."
+  },
   "body": [
     {
       "section": "intro",
@@ -13,7 +14,7 @@
       ]
     },
     {
-      "section": "Game"
+      "section": "Hero"
     },
     {
       "section": "post",
