@@ -81,6 +81,12 @@
 		const snapshot = $state.snapshot(session);
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot));
 	});
+
+	$effect(() => {
+		if (!hydrated) return;
+		session.phase;
+		window.scrollTo({ top: 0, behavior: "instant" });
+	});
 </script>
 
 <Meta {title} {description} {preloadFont} {...metaObj} />

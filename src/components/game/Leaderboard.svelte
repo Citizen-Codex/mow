@@ -26,7 +26,9 @@
 		if (!ready) return;
 		db.getTopScores()
 			.then((scores) => {
-				topScores = scores;
+				// topScores = scores;
+				// temporarily repeat this x10 to test scrolling
+				topScores = Array(10).fill(scores).flat();
 			})
 			.catch((e) => console.error("Error loading leaderboard:", e))
 			.finally(() => {

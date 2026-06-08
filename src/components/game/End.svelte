@@ -13,12 +13,13 @@
 	let leaderboardReady = $state(false);
 
 	$effect(() => {
-		if (!session.name) {
+		const allEfficiencies = Object.values(session.levelEfficiencies);
+
+		// nothing to submit (no name or no scores) — just show the leaderboard
+		if (!session.name || !allEfficiencies.length) {
 			leaderboardReady = true;
 			return;
 		}
-		const allEfficiencies = Object.values(session.levelEfficiencies);
-		if (!allEfficiencies.length) return;
 
 		const roundEfficiencies = ROUND_IDS.map(
 			(id) => session.levelEfficiencies[id]
@@ -28,6 +29,7 @@
 		const scoreFull =
 			allEfficiencies.reduce((a, b) => a + b, 0) / allEfficiencies.length;
 
+		// submit our score first so the fetched leaderboard reflects our rank
 		db.submitScore({
 			userId: session.userId,
 			name: session.name,

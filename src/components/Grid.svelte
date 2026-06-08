@@ -258,8 +258,8 @@
 		width: calc(100% / var(--size));
 		height: calc(100% / var(--size));
 		transition:
-			left 0.125s ease,
-			top 0.125s ease;
+			left 0.1s,
+			top 0.1s;
 		background-image: url("/assets/images/mower.png");
 		background-size: cover;
 		background-repeat: no-repeat;

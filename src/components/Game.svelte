@@ -4,6 +4,7 @@
 	import Button from "$components/ui/Button.svelte";
 	import { SvelteSet } from "svelte/reactivity";
 	import { classify } from "$utils/classifier.js";
+	import { fade } from "svelte/transition";
 
 	// obstacles is an array of [{x,y}]
 	let {
@@ -34,8 +35,10 @@
 	let visitedCount = $derived(visited.size);
 	let completed = $derived(visitedCount === targetCount);
 	let exceeded = $derived(path.length >= maxMoves);
-	// once true, the grid is revealed and the end message + onComplete fire
+	// once true, the end message overlays and the grid dims
 	let revealed = $state(false);
+	// once true, the parent has been notified (advances the phase)
+	let notified = $state(false);
 	// no longer accepting input (completed or exceeded)
 	let active = $derived(!completed && !exceeded);
 	// brief pause showing the finished grid before the message appears
@@ -49,7 +52,7 @@
 	// pause on the completed grid before revealing the result
 	$effect(() => {
 		if (completed && !revealed) {
-			const id = setTimeout(() => (revealed = true), 500);
+			const id = setTimeout(() => (revealed = true), 250);
 			return () => clearTimeout(id);
 		}
 	});
@@ -59,8 +62,15 @@
 		if (exceeded && !revealed) revealed = true;
 	});
 
+	// let the message + dimmed grid sit for a beat before notifying the parent
 	$effect(() => {
-		if (revealed) onComplete(completed ? path : undefined);
+		if (revealed && !notified) {
+			const id = setTimeout(() => {
+				notified = true;
+				onComplete(completed ? path : undefined);
+			}, 1500);
+			return () => clearTimeout(id);
+		}
 	});
 
 	function onmove(key) {
@@ -128,7 +138,9 @@
 		{#if active}<Keypad {onmove} {active}></Keypad>{/if}
 	</div>
 	{#if showMessage}
-		<p class="message"><strong>{message}</strong></p>
+		<p class="message" transition:fade={{ duration: 150 }}>
+			<strong>{message}</strong>
+		</p>
 	{/if}
 	{#if !startTime}
 		<div class="start">
@@ -161,7 +173,7 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, 50%);
 	}
 
 	.start {
