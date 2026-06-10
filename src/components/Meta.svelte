@@ -13,8 +13,13 @@
 		website = "https://www.citizencodex.com/",
 		handle = "citizencodex",
 		keywords = "",
-		preloadFont = []
+		preloadFont = [],
+		image = undefined
 	} = $props();
+
+	// site root = page url minus a trailing /game segment (and trailing slash)
+	const siteRoot = $derived(url.replace(/\/game\/?$/, "").replace(/\/$/, ""));
+	const ogImage = $derived(image ?? `${siteRoot}/assets/og.png`);
 </script>
 
 <svelte:head>
@@ -30,10 +35,7 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:locale" content="en_US" />
 
-	<meta
-		property="og:image"
-		content="{url.replace('/game', '')}/assets/og.png"
-	/>
+	<meta property="og:image" content={ogImage} />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
@@ -43,10 +45,8 @@
 	<meta name="twitter:creator" content="@{handle}" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<meta
-		name="twitter:image:src"
-		content="{url.replace('/game', '')}/assets/og.png"
-	/>
+	<meta name="twitter:image" content={ogImage} />
+	<meta name="twitter:image:src" content={ogImage} />
 
 	<meta name="robots" content="max-image-preview:large" />
 
