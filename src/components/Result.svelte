@@ -4,7 +4,7 @@
 	import obstacles from "$data/obstacles.json";
 	import solution from "$data/solution.json";
 	import { game } from "$runes/misc.svelte.js";
-	import inView from "$actions/inview.js";
+	import inView from "$actions/inView.js";
 
 	const size = 10;
 	let visible = $state(false);
