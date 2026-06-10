@@ -1,0 +1,79 @@
+/*
+ * Citizen Codex design tokens, ported from the starter project's
+ * src/lib/styles/tokens.css and fonts.css (Tailwind @theme -> plain CSS).
+ * Tokens are prefixed with --cc- to avoid clashing with this project's
+ * existing variables (e.g. --color-yellow in variables.css).
+ */
+
+@font-face {
+	font-family: "Roboto Mono";
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+	src: url("/fonts/RobotoMono.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Junicode";
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+	src: url("/fonts/Junicode.woff2") format("woff2");
+}
+
+:root {
+	/* fonts */
+	--cc-font-mono: "Roboto Mono", monospace;
+	--cc-font-serif: "Junicode", serif;
+
+	/* colors */
+	--cc-cream: #faf5ef;
+	--cc-night: #121212;
+}
+
+/*
+ * Typography utilities from the starter's @utility definitions.
+ * display-* = Junicode serif, detail-* = Roboto Mono.
+ */
+
+.cc-display-xs {
+	font-family: var(--cc-font-serif);
+	font-size: 1.25rem;
+	line-height: 1.25;
+}
+
+.cc-detail-md {
+	font-family: var(--cc-font-mono);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.cc-detail-sm {
+	font-family: var(--cc-font-mono);
+	font-size: 0.75rem;
+	line-height: 1.25;
+}
+
+.cc-detail-xs {
+	font-family: var(--cc-font-mono);
+	font-size: 0.625rem;
+	line-height: 1.25;
+}
+
+@media only screen and (min-width: 768px) {
+	.cc-display-xs {
+		font-size: 1.5rem;
+	}
+
+	.cc-detail-md {
+		font-size: 1rem;
+	}
+
+	.cc-detail-sm {
+		font-size: 0.875rem;
+	}
+
+	.cc-detail-xs {
+		font-size: 0.75rem;
+	}
+}

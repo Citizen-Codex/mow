@@ -14,8 +14,7 @@
 		"@lucide/svelte": "^0.575.0",
 		"@rollup/plugin-dsv": "^3.0.5",
 		"@supabase/supabase-js": "^2.101.1",
-		"@sveltejs/adapter-cloudflare": "^7.2.6",
-		"@sveltejs/adapter-static": "^3.0.9",
+		"@sveltejs/adapter-vercel": "^6.3.3",
 		"@sveltejs/kit": "^2.50.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"archieml": "^0.5.0",
@@ -41,5 +40,9 @@
 		"node": ">= 22.22.0"
 	},
 	"browserslist": "> 0.5%, last 4 versions, not ie <= 11, not ie_mob <= 11",
-	"packageManager": "pnpm@10.33.4+sha512.1c67b3b359b2d408119ba1ed289f34b8fc3c6873412bec6fd264fbdc82489e510fcbecb9ce9d22dae7f3b76269d8441046014bdca53b9979cd7a561ad631b800"
+	"packageManager": "pnpm@10.33.4+sha512.1c67b3b359b2d408119ba1ed289f34b8fc3c6873412bec6fd264fbdc82489e510fcbecb9ce9d22dae7f3b76269d8441046014bdca53b9979cd7a561ad631b800",
+	"dependencies": {
+		"embla-carousel-svelte": "^8.6.0",
+		"iconify-icon": "^3.0.2"
+	}
 }
