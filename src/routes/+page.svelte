@@ -22,7 +22,7 @@
 	const metaObj =
 		import.meta.env.VITE_SITE == "citizencodex"
 			? {
-					url: "https://citizencodex.com/our-stories/mow",
+					url: "https://mow.citizencodex.com",
 					author: "Citizen Codex",
 					website: "https://citizencodex.com",
 					handle: "citizencodex"
