@@ -1,5 +1,3 @@
-export const trailingSlash = "always";
-
 // Cache rendered pages at the edge (ISR), regenerating at most once an hour
 export const config = { isr: { expiration: 3600 } };
 

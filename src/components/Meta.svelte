@@ -1,11 +1,17 @@
 <script>
+	import { dev } from "$app/environment";
+	import { injectAnalytics } from "@vercel/analytics/sveltekit";
+
+	if (import.meta.env.VITE_SITE == "citizencodex")
+		injectAnalytics({ mode: dev ? "development" : "production" });
+
 	let {
-		title = "Title TK",
-		description = "Description TK",
-		url = "https://pudding.cool",
-		author = "The Pudding",
-		website = "https://pudding.cool",
-		handle = "puddingviz",
+		title = "Lawn mowing experiment",
+		description = "Mow a series of lawns as efficiently as you can. We will publish the analysis in a couple weeks.",
+		url = "https://www.citizencodex.com/",
+		author = "Citizen Codex",
+		website = "https://www.citizencodex.com/",
+		handle = "citizencodex",
 		keywords = "",
 		preloadFont = []
 	} = $props();
@@ -46,17 +52,13 @@
 
 	<link rel="canonical" href="{url}/" />
 
-	{#if import.meta.env.VITE_SITE == "citizencodex"}
-		<!-- todo analytics -->
-	{:else}
-		{#each preloadFont as href}
-			<link rel="preload" {href} as="font" type="font/woff2" crossorigin />
-		{/each}
+	{#each preloadFont as href}
+		<link rel="preload" {href} as="font" type="font/woff2" crossorigin />
+	{/each}
 
-		<script
-			data-goatcounter="https://thepudding.goatcounter.com/count"
-			async
-			src="//gc.zgo.at/count.js"
-		></script>
-	{/if}
+	<script
+		data-goatcounter="https://thepudding.goatcounter.com/count"
+		async
+		src="//gc.zgo.at/count.js"
+	></script>
 </svelte:head>
