@@ -11,6 +11,7 @@
 	import Bonus from "$components/game/Bonus.svelte";
 	import End from "$components/game/End.svelte";
 	import { session } from "$runes/misc.svelte.js";
+	import copy from "$data/copy.json";
 
 	const preloadFont = [
 		"https://pudding.cool/assets/fonts/inconsolata/inconsolata-v32-latin-regular.woff2",
@@ -34,9 +35,7 @@
 
 	const STORAGE_KEY = "pudding_mow_game";
 
-	const title = "Lawn Mowing Experiment";
-	const description =
-		"Mow a series of lawns as efficiently as you can. We will publish the analysis in a few weeks.";
+	const { title, description, keywords } = copy.meta;
 
 	let hydrated = $state(false);
 
@@ -89,7 +88,7 @@
 	});
 </script>
 
-<Meta {title} {description} {preloadFont} {...metaObj} />
+<Meta {title} {description} {keywords} {preloadFont} {...metaObj} />
 
 <div class="page">
 	{#if session.phase === "intro"}

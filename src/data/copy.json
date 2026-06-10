@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Lawn Mowing Experiment",
-    "description": "Mow a series of lawns as efficiently as you can. We will publish the analysis in a few weeks."
+    "description": "Mow a series of lawns as efficiently as you can. We will publish the analysis in a few weeks.",
+    "keywords": "lawn mowing, game, experiment, heuristics, algorithms, pathfinding"
   },
   "body": [
     {

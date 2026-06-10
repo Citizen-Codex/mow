@@ -6,9 +6,9 @@
 		injectAnalytics({ mode: dev ? "development" : "production" });
 
 	let {
-		title = "Lawn mowing experiment",
-		description = "Mow a series of lawns as efficiently as you can. We will publish the analysis in a couple weeks.",
-		url = "https://www.citizencodex.com/",
+		title = "Lawn Mowing Experiment",
+		description = "Mow a series of lawns as efficiently as you can. We will publish the analysis in a couple of weeks.",
+		url = "https://mow.citizencodex.com/",
 		author = "Citizen Codex",
 		website = "https://www.citizencodex.com/",
 		handle = "citizencodex",
@@ -30,10 +30,7 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:locale" content="en_US" />
 
-	<meta
-		property="og:image"
-		content="{url.replace('/game', '')}/assets/og.png"
-	/>
+	<meta property="og:image" content="{url}/assets/og.png" />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
@@ -43,10 +40,7 @@
 	<meta name="twitter:creator" content="@{handle}" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<meta
-		name="twitter:image:src"
-		content="{url.replace('/game', '')}/assets/og.png"
-	/>
+	<meta name="twitter:image:src" content="{url}/assets/og.png" />
 
 	<meta name="robots" content="max-image-preview:large" />
 
@@ -55,10 +49,4 @@
 	{#each preloadFont as href}
 		<link rel="preload" {href} as="font" type="font/woff2" crossorigin />
 	{/each}
-
-	<script
-		data-goatcounter="https://thepudding.goatcounter.com/count"
-		async
-		src="//gc.zgo.at/count.js"
-	></script>
 </svelte:head>
